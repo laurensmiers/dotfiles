@@ -1,0 +1,41 @@
+(add-to-load-path "~/.stumpwm.d/contrib/modeline/cpu")
+(add-to-load-path "~/.stumpwm.d/contrib/modeline/mem")
+(add-to-load-path "~/.stumpwm.d/contrib/modeline/battery-portable")
+;; (set-contrib-dir "/home/laurens/.stumpwm.d/contrib/")
+
+(load-module "cpu")
+(load-module "mem")
+(load-module "battery-portable")
+
+;; Default Browser
+(setq *browser* "conkeror")
+
+(defcommand browser () ()
+  "run or raise conkeror"
+  (run-or-raise "conkeror" '(:class "Conkeror")))
+(define-key *root-map* (kbd "b") "browser")
+
+;; Set mouse policy to "focus on mouse-click"
+(setf *mouse-focus-policy* :click) ;; :click, :ignore, :sloppy
+
+;; Use the window's resource name to reduce clutter in window name
+(setf stumpwm:*window-name-source* :resource-name)
+
+;; Set timeout of modeline to 1 and place it at the bottom
+(setf *mode-line-timeout* 1)
+(setf *mode-line-position* :bottom)
+
+(setf stumpwm:*screen-mode-line-format*
+  (list
+  "%n: (%c%M) | Batt: %B | "
+  "%w"
+  "^>" '(:eval (stumpwm:run-shell-command "date" t))))
+
+(stumpwm:enable-mode-line (stumpwm:current-screen)
+                          (stumpwm:current-head)
+						  t)
+
+
+;; Start commands
+(emacs)
+(browser)
