@@ -1,1 +1,4 @@
+# By setting ALTERNATE_EDITOR, we enable emacsclient to start a full emacs process if it can't connect to one
+export ALTERNATE_EDITOR=emacs
 export EDITOR=emacsclient
+export VISUAL=emacsclient
