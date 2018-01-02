@@ -1,0 +1,14 @@
+// Default page for new buffers
+homepage = "https://duckduckgo.com/"
+
+// Load download buffers in the background in the current
+// window, instead of in new windows.
+download_buffer_automatic_open_target = OPEN_NEW_BUFFER_BACKGROUND;
+
+// Content handlers
+external_content_handlers.set("application/pdf", "emacsclient");
+external_content_handlers.set("text/*", "emacsclient");
+
+// Editing
+editor_shell_command = "emacsclient";
+view_source_use_external_editor = true;
