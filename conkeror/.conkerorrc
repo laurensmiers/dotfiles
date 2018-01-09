@@ -4,6 +4,9 @@ require("new-tabs.js");
 // Default page for new buffers
 homepage = "https://duckduckgo.com/"
 
+// Use bookmarks in url-completion
+url_completion_use_bookmarks = true;
+
 // Load download buffers in the background in the current
 // window, instead of in new windows.
 download_buffer_automatic_open_target = OPEN_NEW_BUFFER_BACKGROUND;
