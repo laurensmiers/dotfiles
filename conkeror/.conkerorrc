@@ -1,3 +1,6 @@
+// set tab-bar
+require("new-tabs.js");
+
 // Default page for new buffers
 homepage = "https://duckduckgo.com/"
 
