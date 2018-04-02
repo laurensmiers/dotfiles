@@ -5,3 +5,4 @@ export VISUAL=emacsclient
 
 # make alias for emacsclient (terminal mode)
 alias et='emacsclient -t'
+alias logout='sudo pkill -KILL -u $(whoami)'
