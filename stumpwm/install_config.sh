@@ -2,13 +2,16 @@
 # TODO: assumption here, git checkout in ~/dotfiles
 
 # make stumpwm directory
+echo "Make stumpwm directory to checkout our config..."
 mkdir ~/.stumpwm.d || true
 git clone https://github.com/stumpwm/stumpwm-contrib.git ~/.stumpwm.d/contrib
 
 # Link to git dot-file
+echo "Link to our dotfile..."
 ln -s ~/dotfiles/stumpwm/.stumpwmrc ~/.stumpwmrc
 
-# set kde window manager to stumpwm
-cp ~/dotfiles/stumpwm/set_window_manager.sh ~/.config/plasma-workspace/env || true
+# Add stumpwm desktop session
+echo "We need root access to copy the stumpwm.desktop..."
+sudo cp ~/dotfiles/stumpwm/stumpwm.desktop /usr/share/xsessions/
 
-echo "Restart X to enable stumpwm (cross your fingers)....."
+echo "DONE --> Logout and select the stumpwm desktop session (cross your fingers)....."
