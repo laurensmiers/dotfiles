@@ -20,6 +20,6 @@ editor_shell_command = "emacsclient";
 view_source_use_external_editor = true;
 
 // Add webjumps
-define_webjump("d", "https://duckduckgo.com/");
+define_webjump("d", "https://duckduckgo.com/?q=%s", $alternative = "https://duckduckgo.com");
 define_webjump("g", "https://github.com/");
 define_webjump("y", "http://www.youtube.com/results?search_query=%s&aq=f", $alternative = "http://www.youtube.com");
