@@ -23,7 +23,7 @@
 
 ;; Set timeout of modeline to 1 and place it at the bottom
 (setf *mode-line-timeout* 1)
-(setf *mode-line-position* :bottom)
+(setf *mode-line-position* :top)
 
 (setf stumpwm:*screen-mode-line-format*
   (list
