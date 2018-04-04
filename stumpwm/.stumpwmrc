@@ -1,11 +1,19 @@
+(load "~/quicklisp/setup.lisp")
+(ql:quickload :clx-truetype)
+
 (add-to-load-path "~/.stumpwm.d/contrib/modeline/cpu")
 (add-to-load-path "~/.stumpwm.d/contrib/modeline/mem")
 (add-to-load-path "~/.stumpwm.d/contrib/modeline/battery-portable")
+(add-to-load-path "~/.stumpwm.d/contrib/util/ttf-fonts")
 ;; (set-contrib-dir "/home/laurens/.stumpwm.d/contrib/")
 
 (load-module "cpu")
 (load-module "mem")
 (load-module "battery-portable")
+(load-module "ttf-fonts")
+
+(xft:cache-fonts)
+(set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 13))
 
 ;; Default Browser
 (setq *browser* "conkeror")
