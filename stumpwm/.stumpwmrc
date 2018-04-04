@@ -29,12 +29,11 @@
   (list
   "%n: (%c%M) | Batt: %B | "
   "%w"
-  "^>" '(:eval (stumpwm:run-shell-command "date" t))))
+  "^>|" '(:eval (stumpwm:run-shell-command "date" t))))
 
 (stumpwm:enable-mode-line (stumpwm:current-screen)
                           (stumpwm:current-head)
 						  t)
-
 
 ;; Start commands
 (emacs)
