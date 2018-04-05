@@ -5,12 +5,14 @@
 (add-to-load-path "~/.stumpwm.d/contrib/modeline/mem")
 (add-to-load-path "~/.stumpwm.d/contrib/modeline/battery-portable")
 (add-to-load-path "~/.stumpwm.d/contrib/util/ttf-fonts")
+(add-to-load-path "~/.stumpwm.d/contrib/util/swm-gaps")
 ;; (set-contrib-dir "/home/laurens/.stumpwm.d/contrib/")
 
 (load-module "cpu")
 (load-module "mem")
 (load-module "battery-portable")
 (load-module "ttf-fonts")
+(load-module "swm-gaps")
 
 (xft:cache-fonts)
 (set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 13))
@@ -46,3 +48,14 @@
 ;; Start commands
 (emacs)
 (browser)
+
+;; Inner gaps run along all the 4 borders of a frame
+(setf swm-gaps:*inner-gaps-size* 10)
+
+;; Outer gaps add more padding to the outermost borders
+;; (touching the screen border)
+(setf swm-gaps:*outer-gaps-size* 20)
+
+;; Enable useless gaps
+;; 'disabled' by default
+(swm-gaps:toggle-gaps)
