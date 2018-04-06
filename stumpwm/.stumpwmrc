@@ -1,6 +1,9 @@
 (setf stumpwm::*debug-level* 10)
 (redirect-all-output (data-dir-file "debug-output" "txt"))
 
+;;; Swap Caps with Ctrl
+(run-shell-command "setxkbmap -option ctrl:nocaps")
+
 (load "~/quicklisp/setup.lisp")
 (ql:quickload :clx-truetype)
 
