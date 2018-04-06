@@ -20,15 +20,22 @@
 ;; Default Browser
 (setq *browser* "conkeror")
 
+;; Browser
 (defcommand browser () ()
   "run or raise conkeror"
   (run-or-raise "conkeror" '(:class "Conkeror")))
 (define-key *root-map* (kbd "b") "browser")
 
+;; Terminal
 (defcommand term () ()
   "run or raise konsole"
   (run-or-raise "konsole" '(:class "Terminal")))
 (define-key *root-map* (kbd "c") "term")
+
+;; dmenu
+(defcommand dmenu() ()
+(run-shell-command "dmenu_run"))
+(define-key *root-map* (kbd "d") "dmenu")
 
 ;; Set mouse policy to "focus on mouse-click"
 (setf *mouse-focus-policy* :click) ;; :click, :ignore, :sloppy
