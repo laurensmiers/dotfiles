@@ -50,9 +50,19 @@
                           (stumpwm:current-head)
 						  t)
 
-;; Start commands
+;; Current group is dev env
+(grename "Dev env")
 (emacs)
 (browser)
+
+(gnew "Media env")
+(gnew "Other env")
+
+(gnewbg-float "Floating env")
+
+;; Select "Dev env" as starting group
+(run-commands "gselect 1")
+
 
 ;; Inner gaps run along all the 4 borders of a frame
 (setf swm-gaps:*inner-gaps-size* 10)
