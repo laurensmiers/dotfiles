@@ -1,3 +1,6 @@
+(setf stumpwm::*debug-level* 10)
+(redirect-all-output (data-dir-file "debug-output" "txt"))
+
 (load "~/quicklisp/setup.lisp")
 (ql:quickload :clx-truetype)
 
