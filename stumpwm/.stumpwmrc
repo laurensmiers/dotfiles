@@ -78,6 +78,8 @@
 ;; (touching the screen border)
 (setf swm-gaps:*outer-gaps-size* 20)
 
-;; Enable useless gaps
+;; Enable useless gaps if not enabled
 ;; 'disabled' by default
-(swm-gaps:toggle-gaps)
+( if (not swm-gaps:*gaps-on*)
+  (swm-gaps:toggle-gaps)
+)
