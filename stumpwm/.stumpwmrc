@@ -1,6 +1,9 @@
 (load "~/quicklisp/setup.lisp")
 (ql:quickload :clx-truetype)
 
+(stumpwm:run-shell-command
+ "~/dotfiles/stumpwm/background.sh")
+
 (add-to-load-path "~/.stumpwm.d/contrib/modeline/cpu")
 (add-to-load-path "~/.stumpwm.d/contrib/modeline/mem")
 (add-to-load-path "~/.stumpwm.d/contrib/modeline/battery-portable")
@@ -28,7 +31,7 @@
 
 ;; Terminal
 (defcommand term () ()
-  "run or raise konsole"
+  "run or raise terminal"
   (run-or-raise "konsole" '(:class "Terminal")))
 (define-key *root-map* (kbd "c") "term")
 
