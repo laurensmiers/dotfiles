@@ -25,6 +25,11 @@
   (run-or-raise "conkeror" '(:class "Conkeror")))
 (define-key *root-map* (kbd "b") "browser")
 
+(defcommand term () ()
+  "run or raise konsole"
+  (run-or-raise "konsole" '(:class "Terminal")))
+(define-key *root-map* (kbd "c") "term")
+
 ;; Set mouse policy to "focus on mouse-click"
 (setf *mouse-focus-policy* :click) ;; :click, :ignore, :sloppy
 
