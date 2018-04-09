@@ -20,3 +20,4 @@ function add_to_dotfile {
 }
 
 add_to_dotfile ~/.bashrc
+add_to_dotfile ~/.zshrc
