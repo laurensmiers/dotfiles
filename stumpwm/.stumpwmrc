@@ -4,6 +4,11 @@
 ;;; Swap Caps with Ctrl
 (run-shell-command "setxkbmap -option ctrl:nocaps")
 
+(run-shell-command "xmodmap -e \"remove mod4 = Super_L\"")
+
+(set-prefix-key (kbd "Super_L"))
+
+
 (load "~/quicklisp/setup.lisp")
 (ql:quickload :clx-truetype)
 
