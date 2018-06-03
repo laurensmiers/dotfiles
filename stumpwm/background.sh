@@ -1,3 +1,3 @@
 #!/bin/sh
 
-feh --bg-scale ~/dotfiles/images/backgrounds/raining-green-background.jpg
+feh --bg-scale ~/dotfiles/images/backgrounds/arch-water.png
