@@ -14,6 +14,9 @@
 (stumpwm:run-shell-command
  "~/dotfiles/stumpwm/background.sh")
 
+(stumpwm:run-shell-command
+ "~/.config/polybar/launch.sh")
+
 (add-to-load-path "~/.stumpwm.d/contrib/modeline/cpu")
 (add-to-load-path "~/.stumpwm.d/contrib/modeline/mem")
 (add-to-load-path "~/.stumpwm.d/contrib/modeline/battery-portable")
@@ -60,15 +63,7 @@
 (setf *mode-line-timeout* 1)
 (setf *mode-line-position* :top)
 
-(setf stumpwm:*screen-mode-line-format*
-  (list
-  "%n: (%c%M) | Batt: %B | "
-  "%w"
-  "^>|" '(:eval (stumpwm:run-shell-command "date" t))))
 
-(stumpwm:enable-mode-line (stumpwm:current-screen)
-                          (stumpwm:current-head)
-						  t)
 
 ;; Current group is dev env
 (grename "Dev env")
