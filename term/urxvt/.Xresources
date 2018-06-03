@@ -1,0 +1,27 @@
+URxvt.background: black
+URxvt.foreground: white
+URxvt.intensityStyles:	false
+URxvt.depth:		32
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=13
+URxvt.scrollBar:	false
+URxvt.cursorColor:	white
+
+!! Extensions
+URxvt.perl-ext-common:	default,matcher,resize-font,url-select,tabbed
+URxvt.colorUL:		#4682B4
+
+!! url-select
+URxvt.keysym.M-u:	perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+
+!! resize-font
+URxvt.resize-font.smaller:	M-Down
+URxvt.resize-font.bigger:	M-Up
+
+!! Matcher
+URxvt.url-launcher:	/usr/bin/xdg-open
+URxvt.matcher.button:	1
+
+!! Larger history limit
+URxvt.saveLines: 1000000
