@@ -42,7 +42,7 @@
 ;; Terminal
 (defcommand term () ()
   "run or raise terminal"
-  (run-or-raise "konsole" '(:class "Terminal")))
+  (run-or-raise "urxvt" '(:class "Terminal")))
 (define-key *root-map* (kbd "c") "term")
 
 ;; dmenu
