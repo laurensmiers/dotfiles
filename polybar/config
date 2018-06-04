@@ -47,7 +47,8 @@ font-1 = MaterialIcons:size=10;0
 font-2 = Termsynu:size=8:antialias=false;-2
 font-3 = FontAwesome:size=10;0
 
-modules-left = powermenu cpu backlight
+modules-left = powermenu backlight filesystem
+modules-center = cpu memory
 modules-right = volume wireless-network wired-network battery date
 
 [bar/bottom]
@@ -74,8 +75,9 @@ font-3 = NotoSans-Regular:size=8;-1
 font-4 = MaterialIcons:size=10;-1
 font-5 = Termsynu:size=8:antialias=false;0
 
-# modules-left =
-modules-right = cpu memory
+modules-left =
+modules-center =
+modules-right =
 
 [module/backlight]
 type = internal/xbacklight
@@ -130,94 +132,68 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 750
 
-# ws-icon-0 = term;
-# ws-icon-1 = web;
-# ws-icon-2 = code;
-# ws-icon-3 = music;
-# ws-icon-4 = irssi;
-# ws-icon-default = 
-# label-active = 
-# label-active-padding = 1
-# label-occupied = 
-# label-occupied-padding = 1
-# label-empty = 
-# label-empty-padding = 1
-
 [module/cpu]
 type = internal/cpu
-interval = 0.5
-format = <label> <ramp-coreload>
-label = CPU %percentage%
+interval = 1
+format = <label> <bar-load>
 
 format-prefix = 
-
-ramp-coreload-0 = ▁
-ramp-coreload-0-font = 2
-ramp-coreload-0-foreground = #aaff77
-ramp-coreload-1 = ▂
-ramp-coreload-1-font = 2
-ramp-coreload-1-foreground = #aaff77
-ramp-coreload-2 = ▃
-ramp-coreload-2-font = 2
-ramp-coreload-2-foreground = #aaff77
-ramp-coreload-3 = ▄
-ramp-coreload-3-font = 2
-ramp-coreload-3-foreground = #aaff77
-ramp-coreload-4 = ▅
-ramp-coreload-4-font = 2
-ramp-coreload-4-foreground = #fba922
-ramp-coreload-5 = ▆
-ramp-coreload-5-font = 2
-ramp-coreload-5-foreground = #fba922
-ramp-coreload-6 = ▇
-ramp-coreload-6-font = 2
-ramp-coreload-6-foreground = #ff5555
-ramp-coreload-7 = █
-ramp-coreload-7-font = 2
-ramp-coreload-7-foreground = #ff5555
+label= "  "
+label-font = 3
+label-foreground = #99
+bar-load-width = 15
+bar-load-gradient = true
+bar-load-foreground-0 = #449f3d
+bar-load-foreground-1 = #2f8419
+bar-load-foreground-2 = #f5a70a
+bar-load-foreground-3 = #ed5456
+bar-load-indicator = █
+bar-load-indicator-font = 2
+bar-load-indicator-foreground = #fff
+bar-load-fill = █
+bar-load-fill-font = 2
+bar-load-empty = █
+bar-load-empty-font = 2
+bar-load-empty-foreground = #44
 
 [module/date]
 type = internal/date
 interval = 5
 
-date = " %Y-%m-%d"
+date = %Y-%m-%d
 
 time = %H:%M
-time-alt = %H:%M:%S
 
-format-prefix = "date"
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 # format-underline = #0a6cf5
 
-label = %date% %time%
-
-# [module/temperature]
-# type = custom/script
-# exec = $HOME/.config/polybar/temperature.sh
-# interval = 10
-
-# format-prefix = 
+label =  %time%  %date%
 
 [module/memory]
 type = internal/memory
+interval = 0.2
 format = <label> <bar-used>
-label = RAM
 
 format-prefix = 
+label= " "
+label-font = 3
+label-foreground = #99
 
-bar-used-width = 30
-bar-used-foreground-0 = #aaff77
-bar-used-foreground-1 = #aaff77
-bar-used-foreground-2 = #fba922
-bar-used-foreground-3 = #ff5555
-bar-used-indicator = |
+bar-used-width = 15
+bar-used-gradient = true
+bar-used-foreground-0 = #449f3d
+bar-used-foreground-1 = #2f8419
+bar-used-foreground-2 = #f5a70a
+bar-used-foreground-3 = #ed5456
+bar-used-indicator = █
 bar-used-indicator-font = 6
-bar-used-indicator-foreground = #ff
-bar-used-fill = ─
+bar-used-indicator-foreground = #fff
+bar-used-fill = █
 bar-used-fill-font = 6
-bar-used-empty = ─
+bar-used-empty = █
 bar-used-empty-font = 6
-bar-used-empty-foreground = #444444
+bar-used-empty-foreground = #44
 
 [module/wireless-network]
 type = internal/network
@@ -225,18 +201,11 @@ interface = wlp3s0
 interval = 3.0
 ping-interval = 10
 
-format-connected = <ramp-signal> <label-connected>
-
+format-connected =  <label-connected>
 label-connected = %essid%
-# label-disconnected =    not connected
-label-disconnected-foreground = #66
 
-ramp-signal-0 = 😱
-ramp-signal-1 = 😠
-ramp-signal-2 = 😒
-ramp-signal-3 = 😊
-ramp-signal-4 = 😃
-ramp-signal-5 = 😈
+format-disconnected = 
+label-disconnected-foreground = #66
 
 [module/wired-network]
 type = internal/network
@@ -245,7 +214,7 @@ interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 
-label-connected = %essid%
+label-connected = %local_ip%
 label-disconnected-foreground = #66
 
 ramp-signal-0 = 😱
@@ -254,19 +223,6 @@ ramp-signal-2 = 😒
 ramp-signal-3 = 😊
 ramp-signal-4 = 😃
 ramp-signal-5 = 😈
-
-
-# label-offline =  mpd is offline
-
-# icon-play = 
-# icon-pause = 
-# icon-stop = 
-# icon-prev = 
-# icon-next = 
-# icon-seekb = 
-# icon-seekf = 
-# icon-random = 
-# icon-repeat = 
 
 [module/volume]
 type = internal/pulseaudio
@@ -327,7 +283,41 @@ menu-3-0-exec = systemctl suspend
 menu-3-1 = cancel
 menu-3-1-exec = menu-open-0
 
-[module/clock]
-type = internal/date
-interval = 2
-date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+# Storage of icons + stuff to remember
+
+# label-offline =  mpd is offline
+
+# icon-play = 
+# icon-pause = 
+# icon-stop = 
+# icon-prev = 
+# icon-next = 
+# icon-seekb = 
+# icon-seekf = 
+# icon-random = 
+# icon-repeat = 
+
+# label-disconnected =    not connected
+# format-prefix = 
+# ws-icon-0 = term;
+# ws-icon-1 = web;
+# ws-icon-2 = code;
+# ws-icon-3 = music;
+# ws-icon-4 = irssi;
+# ws-icon-default = 
+# label-active = 
+# label-active-padding = 1
+# label-occupied = 
+# label-occupied-padding = 1
+# label-empty = 
+# label-empty-padding = 1
