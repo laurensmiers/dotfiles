@@ -47,9 +47,11 @@ font-1 = MaterialIcons:size=10;0
 font-2 = Termsynu:size=8:antialias=false;-2
 font-3 = FontAwesome:size=10;0
 
-modules-left = powermenu backlight filesystem
-modules-center = cpu memory
-modules-right = volume wireless-network wired-network battery date
+modules-left = stumpwmgroups backlight filesystem
+modules-center = cpu date memory demo
+modules-right = volume wireless-network wired-network battery powermenu
+
+enable-ipc = true
 
 [bar/bottom]
 monitor = eDP-1
@@ -292,6 +294,11 @@ mount-0 = /
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/stumpwmgroups]
+type = custom/ipc
+hook-0 = ~/.config/polybar/stumpwmgroups.sh
+initial = 1
 
 # Storage of icons + stuff to remember
 
