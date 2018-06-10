@@ -76,19 +76,12 @@
 ;; Select "Dev env" as starting group
 (run-commands "gselect 1")
 
-
 ;; Inner gaps run along all the 4 borders of a frame
 (setf swm-gaps:*inner-gaps-size* 10)
 
 ;; Outer gaps add more padding to the outermost borders
 ;; (touching the screen border)
 (setf swm-gaps:*outer-gaps-size* 20)
-
-;; Enable useless gaps if not enabled
-;; 'disabled' by default
-( if (not swm-gaps:*gaps-on*)
-  (swm-gaps:toggle-gaps)
-)
 
 (defun windows-formatted ()
   (let* ((wins (group-windows (current-group))))
