@@ -93,6 +93,8 @@
 ;; groups for polybar
 (defun polybar-groups ()
   "Return string representation for polybar stumpgroups module"
+  ;; Before making string, make sure window numbers don't have gaps
+  (repack-window-numbers)
   (apply #'concatenate 'string
          (mapcar
           (lambda (g)
