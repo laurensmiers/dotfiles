@@ -90,6 +90,13 @@
   (swm-gaps:toggle-gaps)
 )
 
+(defun windows-formatted ()
+  (let* ((wins (group-windows (current-group))))
+         (mapcar (lambda (w)
+         (format-expand *window-formatters* *window-format* w)) wins)
+         )
+)
+
 ;; groups for polybar
 (defun polybar-groups ()
   "Return string representation for polybar stumpgroups module"
@@ -98,12 +105,17 @@
           (lambda (g)
             (let* ((name (string-upcase (group-name g)))
                    (n-win (write-to-string (length (group-windows g))))
+                   ;; I really need to learn lisp...
+                   (f-win (write-to-string (windows-formatted)))
+                   (t1-win (remove #\" f-win))
+                   (t2-win (remove #\( t1-win))
+                   (s-win (remove #\) t2-win))
                    (display-text (cond ((string-equal name "MAIN" ) "   MAIN ")
                                        ((string-equal name "CANVAS") "   CANVAS ")
                                        ((string-equal name "FLOAT") "   FLOAT ")
                                        (t (concat "  " name "  ")))))
               (if (eq g (current-group))
-                  (concat "%{F#ECEFF4 B#882E3440}" display-text "[" n-win "] " "%{F- B-}  ")
+                  (concat "%{F#ECEFF4 B#882E3440}" display-text "[" n-win "] : " s-win "%{F- B-}  ")
                   (concat "%{F#8A9899}" display-text "[" n-win "]" "%{F-}  "))))
           (sort (screen-groups (current-screen)) #'< :key #'group-number))))
 
