@@ -91,6 +91,7 @@
 )
 
 ;; groups for polybar
+;; Font used in the string : FontAwesome
 (defun polybar-groups ()
   "Return string representation for polybar stumpgroups module"
   ;; Before making string, make sure window numbers don't have gaps
