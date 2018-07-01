@@ -29,11 +29,7 @@ brown = #ab7967
 
 [bar/top_base]
 monitor-fallback = eDP-1
-width = 100%
-height = 34
 
-spacing = 2
-padding-right = 5
 module-margin = 4
 
 font-0 = DejaVuSans-Regular:size=8;-1
