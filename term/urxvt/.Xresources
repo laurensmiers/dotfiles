@@ -25,3 +25,8 @@ URxvt.matcher.button:	1
 
 !! Larger history limit
 URxvt.saveLines: 1000000
+
+
+!! Transparency
+URxvt.depth: 32
+URxvt.background: rgba:0000/0000/0200/c800
