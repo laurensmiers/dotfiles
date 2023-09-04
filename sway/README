@@ -1,0 +1,12 @@
+
+# Multi-monitor setup
+
+To add a multi-monitor setup, add a file 99-monitor-setup.conf in /etc/sway/config.d :
+
+    output DP-5 pos 0 0
+    output DP-3 pos 1920 0
+    output DP-2 pos 4480 0
+
+    workspace 1 output DP-5
+    workspace 2 output DP-3
+    workspace 3 output DP-2
