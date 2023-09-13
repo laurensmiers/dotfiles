@@ -10,3 +10,6 @@ ln -s ~/projects/dotfiles/sway/config ~/.config/sway/config
 mkdir -p ~/.config/sway/waybar
 rm  ~/.config/waybar/config
 ln -s ~/projects/dotfiles/sway/waybar/config ~/.config/waybar/config
+
+rm -rf ~/.config/sway/config.d
+ln -s ~/projects/dotfiles/sway/config.d ~/.config/sway/config.d

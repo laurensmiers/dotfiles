@@ -227,3 +227,4 @@ bindsym $mod+r mode "resize"
 bar swaybar_command waybar
 
 include /etc/sway/config.d/*
+include ~/.config/sway/config.d/*
