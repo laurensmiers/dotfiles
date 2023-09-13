@@ -75,6 +75,12 @@ exec swayidle -w \
     bindsym XF86MonBrightnessUp exec light -A 10
     bindsym XF86MonBrightnessDown exec light -U 10
 
+    # Volume controls
+    bindsym XF86AudioMute exec amixer set Master toggle
+    bindsym XF86AudioMicMute exec amixer set Capture toggle
+    bindsym XF86AudioLowerVolume exec amixer sset Master 10%-
+    bindsym XF86AudioRaiseVolume exec amixer sset Master 10%+
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
