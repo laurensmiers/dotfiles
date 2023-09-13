@@ -10,18 +10,12 @@
     "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "backlight", "battery", "clock"],
     // Modules configuration
     "sway/workspaces": {
-        "all-outputs": true,
         "format": "{name}: {icon}",
-	"persistent_workspaces" : [1,2,3,4],
         "format-icons": {
-            "1": "",
-            "2": "🌎",
-            "3": "",
-            "4": "",
             "urgent": "",
             "focused": "",
             "default": ""
-        }
+	},
     },
     "sway/window": {
         "format": "{title}",
