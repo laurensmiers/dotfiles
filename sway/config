@@ -67,6 +67,7 @@ exec swayidle -w \
 
     # Kill focused window
     bindsym $mod+q kill
+    bindsym $mod+Shift+q exec wlogout
 
     # Start your launcher
     bindsym $mod+p exec $menu
