@@ -6,6 +6,9 @@ ln -s ~/projects/dotfiles/sway/screenshot.sh ~/.local/bin/screenshot 2>/dev/null
 mkdir -p ~/.config/sway
 rm  ~/.config/sway/config
 ln -s ~/projects/dotfiles/sway/config ~/.config/sway/config
+mkdir -p ~/.config/systemd/user/
+rm  ~/.config/systemd/user/sway-session.target
+ln -s ~/projects/dotfiles/sway/sway-session.target ~/.config/systemd/user/sway-session.target
 
 mkdir -p ~/.config/sway/waybar
 rm  ~/.config/waybar/config
@@ -22,3 +25,7 @@ ln -s ~/projects/dotfiles/sway/wlogout/style.css ~/.config/wlogout/style.css
 mkdir -p ~/.config/kanshi
 rm  ~/.config/kanshi/config
 ln -s ~/projects/dotfiles/sway/kanshi/config ~/.config/kanshi/config
+
+mkdir -p ~/.config/systemd/user/
+rm  ~/.config/systemd/user/kanshi.service
+ln -s ~/projects/dotfiles/sway/kanshi/kanshi.service ~/.config/systemd/user/kanshi.service

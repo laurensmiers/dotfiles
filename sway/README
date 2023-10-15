@@ -14,3 +14,15 @@ To add a multi-monitor setup, add a file 99-monitor-setup.conf in /etc/sway/conf
 To get a list of outputs:
 
 $> swaymsg -t get_outputs
+
+
+# Systemd setup
+
+Use a sway-session.target to allow automatic start/stop of programs like kanshi, see:
+
+https://wiki.archlinux.org/title/Sway#Manage_Sway-specific_daemons_with_systemd
+
+To enable f.e. kanshi as sway starts:
+
+$> systemctl --user enable kanshi
+Created symlink /home/laurens/.config/systemd/user/sway-session.target.wants/kanshi.service → /home/laurens/projects/dotfiles/sway/kanshi/kanshi.service.
