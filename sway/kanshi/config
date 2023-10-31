@@ -6,5 +6,6 @@ profile work {
 }
 
 profile single {
+    output eDP-1 enable
     output eDP-1 position 0,0
 }
